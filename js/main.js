@@ -6,16 +6,20 @@ const navLinkItems = document.querySelectorAll('.nav-link');
 const backToTop = document.getElementById('back-to-top');
 
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) navbar.classList.add('scrolled');
-  else navbar.classList.remove('scrolled');
+  if (navbar) {
+    if (window.scrollY > 50) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+  }
 
-  if (window.scrollY > 400) backToTop.classList.add('visible');
-  else backToTop.classList.remove('visible');
+  if (backToTop) {
+    if (window.scrollY > 400) backToTop.classList.add('visible');
+    else backToTop.classList.remove('visible');
+  }
 
   updateActiveNav();
 });
 
-if (hamburger) {
+if (hamburger && navLinks) {
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     navLinks.classList.toggle('open');
